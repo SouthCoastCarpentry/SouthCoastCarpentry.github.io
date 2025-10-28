@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!-- This is the title that appears in the tab of a browser when viewing the page -->
+<title>Check the tab to confirm</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="Nefarious Safari">
+	<link rel="stylesheet" href="https://github.com/nefarioussafari/assets/css/buttons.css">
+
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
+<!-- Google tag (gtag.js) This is our tag for google analytics, we are going to import it as a snippet-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J8HB3C2GGF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J8HB3C2GGF');
+</script>
+</head>
+<body>
+
+
+  
+<div w3-include-html="content-404.html"></div> 
+
+
+
+
+	<script>
+function goBack() {
+    window.history.back();
+}
+</script>  
+<script>
+includeHTML();
+</script>
+
+</body>
+</html>
