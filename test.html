@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-	<head><div w3-include-html="head.html"></div> </head>
+<head><div w3-include-html="head.html"></div>
+<link rel="stylesheet" href="main.css">	
 <script>
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
@@ -30,7 +31,16 @@ function includeHTML() {
   }
 };
 </script>
+<!-- Google tag (gtag.js) This is our tag for google analytics, we are going to import it as a snippet-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J8HB3C2GGF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-J8HB3C2GGF');
+</script>
+</head>
 <body>
 <!--Start of page content here -->
 <!-- Wrapper -->
